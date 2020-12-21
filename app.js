@@ -4,7 +4,7 @@ let Vehicule = function (couleur, nbRoues, marque){
     this.marque = marque;
 
     Vehicule.prototype.demarrer = function (){
-        console.log("Je démarre ma voiture " + couleur + " avec " + nbRoues + " roues et de la marque " + marque + ".");
+        console.log("Je démarre ma voiture " + this.couleur + " avec " + this.roues + " roues et de la marque " + this.marque + ".");
     }
 
     Vehicule.prototype.arreter = function () {
@@ -13,9 +13,9 @@ let Vehicule = function (couleur, nbRoues, marque){
 }
 console.log(Vehicule.prototype);
 
-Vehicule("bleu", 4, "Peugeot");
-Vehicule.prototype.demarrer();
-Vehicule.prototype.arreter();
+let unVehicule = new Vehicule("bleu", 4, "Peugeot");
+unVehicule.prototype.demarrer();
+unVehicule.prototype.arreter();
 
 let Velo = function (couleur, nbRoues, marque, rayonRoues, typePeinture){
     Vehicule.call(this, couleur, nbRoues, marque);
@@ -23,14 +23,14 @@ let Velo = function (couleur, nbRoues, marque, rayonRoues, typePeinture){
     this.typePeinture = typePeinture;
 
     Velo.prototype.monter = function (){
-        console.log("Je monte à Velo !");
+        console.log("Je monte à Velo, mes roues ont un rayon de " + this.rayonRoues + " et une peinture " + this.typePeinture);
     }
 }
 Velo.prototype = Object.create(Vehicule.prototype); //Copie du prototype parent
 Velo.prototype.constructor = Velo;//Assignation du constructeur
 console.log(Velo.prototype);
-Velo("rouge", 2, "Arena", 40, "aluminium")
-Velo.prototype.monter();
+let unVelo = new Velo("rouge", 2, "Arena", 40, "aluminium")
+unVelo.prototype.monter();
 
 let Voiture = function (couleur, nbRoues, marque, assurance, proprietaire){
     Vehicule.call(this, couleur, nbRoues, marque);
@@ -38,11 +38,11 @@ let Voiture = function (couleur, nbRoues, marque, assurance, proprietaire){
     this.proprietaire = proprietaire;
 
     Voiture.prototype.passerAuCarWash = function (){
-        console.log("Ma voiture passe au carwash");
+        console.log("La voiture passe au carwash, elle est assurée à " + this.assurance + " et le propriétaire est " + this.proprietaire);
     }
 }
 Voiture.prototype = Object.create(Vehicule.prototype); //Copie du prototype parent
 Voiture.prototype.constructor = Voiture;//Assignation du constructeur
-Voiture("noir",4, "Porsh", "Allianz", "Joe");
-Voiture.prototype.passerAuCarWash();
+let uneVoiture = new Voiture("noir",4, "Porsh", "Allianz", "Joe");
+uneVoiture.prototype.passerAuCarWash();
 console.log(Voiture.prototype);
