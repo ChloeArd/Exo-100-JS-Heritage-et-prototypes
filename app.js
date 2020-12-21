@@ -16,7 +16,6 @@ console.log(Vehicule.prototype);
 Vehicule("bleu", 4, "Peugeot");
 Vehicule.prototype.demarrer();
 Vehicule.prototype.arreter();
-Vehicule.prototype.constructor = Vehicule;
 
 let Velo = function (couleur, nbRoues, marque, rayonRoues, typePeinture){
     Vehicule.call(this, couleur, nbRoues, marque);
@@ -43,3 +42,4 @@ let Voiture = function (couleur, nbRoues, marque, assurance, proprietaire){
 
 Voiture("noir",4, "Porsh", "Allianz", "Joe");
 Voiture.prototype.passerAuCarWash();
+console.log(Voiture.prototype);
