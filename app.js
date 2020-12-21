@@ -26,6 +26,8 @@ let Velo = function (couleur, nbRoues, marque, rayonRoues, typePeinture){
         console.log("Je monte à Velo !");
     }
 }
+Velo.prototype = Object.create(Vehicule.prototype); //Copie du prototype parent
+Velo.prototype.constructor = Velo;//Assignation du constructeur
 console.log(Velo.prototype);
 Velo("rouge", 2, "Arena", 40, "aluminium")
 Velo.prototype.monter();
@@ -39,7 +41,8 @@ let Voiture = function (couleur, nbRoues, marque, assurance, proprietaire){
         console.log("Ma voiture passe au carwash");
     }
 }
-
+Voiture.prototype = Object.create(Vehicule.prototype); //Copie du prototype parent
+Voiture.prototype.constructor = Voiture;//Assignation du constructeur
 Voiture("noir",4, "Porsh", "Allianz", "Joe");
 Voiture.prototype.passerAuCarWash();
 console.log(Voiture.prototype);
